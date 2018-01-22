@@ -1,0 +1,98 @@
+.history-search {
+    font-family: 'microsoft yahei';
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    z-index: 100;
+    padding: 3px 12px;
+}
+.treeview {
+    border: 1px solid #ececec;
+}
+
+.skin-blue .sidebar a {
+    color: #617782;
+}
+
+.main-header {
+    border-bottom: 1px solid #fed824;
+    border-right: 1px solid #E8E0B7;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #FFF;
+    color: #474747;
+    /*border-bottom: 1px solid #fed824;*/
+    border-right: 1px solid #E8E0B7;
+}
+
+
+.user-panel>img {
+    max-width: 90px;
+}
+
+.skin-blue .main-header .navbar {
+    background-color: #FFF;
+    /*border-bottom: 1px solid #fed824;*/
+}
+
+.skin-blue .sidebar-menu>li:hover>a,
+.skin-blue .sidebar-menu>li.active>a,
+.skin-blue .sidebar-menu>li.menu-open>a {
+    color: #EBC20C;
+    background: #5E5C5D;
+}
+
+.skin-blue .sidebar-menu>li.header {
+    color: #EBC20C;
+    text-align: center;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle {
+    color: #0c0000;
+}
+
+/*遮罩层*/
+.mask {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+    background-color: rgb(0, 0, 0);  
+    filter: alpha(opacity=60);  
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 9999;
+} 
+.more-history {
+	background-color: #F5F8E6;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	padding: 20px;
+} 
+.history {
+	width: 400px;
+	height: 300px;
+	background-color: #fff;
+}
+
+.btns-group button + button {
+    margin-left: 20px;
+}
+.more-history .close-mod {
+    float: right;
+}
+
+/*更多查询 时间下拉*/
+.more-history .btns-group input {
+    margin: 0 20px;
+    padding: 4px;
+}

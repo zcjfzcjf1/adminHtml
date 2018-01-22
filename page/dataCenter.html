@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="../js/echarts.js"></script>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <script src="../js/config.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="../js/jquery-2.0.3.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="../css/index.css" />
+        <style>
+            .yuanjiao{
+                font-family: Arial;
+                border: 2px solid #fff;
+                border-radius:10px;
+               background-color:#fff;
+                margin-top: 10px;
+            }
+
+            .myPlayer{
+                float:left;
+            }
+
+            .shipinziti{
+                margin-top:5px;
+                margin-bottom:5px;
+               text-align:center;
+                color:#b8b8b8;
+                font-family: "微软雅黑";
+            }
+            .box-header{
+                padding-bottom: 0px;
+            }
+            .box-body{
+                padding-top: 0px;
+            }
+            .sorting_disabled{
+                text-align: center;
+            }
+            .odd>td,.even>td{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="container-fluid" style="background-color:#F5F8E6; height: 100%">
+        <div class="row">
+            <button class="history-search btn btn-primary">查询历史</button>
+            <div class="col-md-5"  >
+                <div class="yuanjiao">
+                    <div id="container" style=" margin-top: -20px; width: 400px;height:300px;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7" style="padding-left:0px;">
+
+                <div class="yuanjiao" style="margin-left:0px;">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align:center;color:#394557;" >设备监控画面</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 shipinziti"  >厂东拐角1号</div>
+                        <div class="col-md-3 shipinziti" >厂东拐角2号</div>
+                        <div class="col-md-3 shipinziti"  >厂东拐角3号</div>
+                        <div class="col-md-3 shipinziti" >厂东拐角4号</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" align="center" >
+                                <video id="myPlayer1" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                    <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                    <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                                </video>
+                        </div>
+                        <div class="col-md-3" align="center">
+                            <video id="myPlayer2" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                        <div class="col-md-3" align="center">
+                            <video id="myPlayer3" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                        <div class="col-md-3" align="center">
+                            <video id="myPlayer4" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 shipinziti" >厂东拐角5号</div>
+                        <div class="col-md-3 shipinziti">厂东拐角6号</div>
+                        <div class="col-md-3 shipinziti">厂东拐角7号</div>
+                        <div class="col-md-3 shipinziti" >厂东拐角8号</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" align="center" style="margin-bottom:10px;">
+                            <video id="myPlayer5" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                        <div class="col-md-3" align="center">
+                            <video id="myPlayer6" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                        <div class="col-md-3" align="center">
+                            <video id="myPlayer7" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                        <div class="col-md-3" align="center">
+                            <video id="myPlayer8" class="myPlay" width="150" height="75" poster="" controls playsInline webkit-playsinline autoplay >
+                                <source src="rtmp://rtmp.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b" type="rtmp/flv" />
+                                <source src="http://hls.open.ys7.com/openlive/f01018a141094b7fa138b9d0b856507b.m3u8" type="application/x-mpegURL" />
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="yuanjiao">
+                    <div class="box-header" style="text-align:center;" >
+                        <h3 class="box-title"  style="text-align:center;color:#394557;font-size:14px;">企业生产数据</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr style="background-color:#F3EABF;color:#4c525d">
+                                <th>序号</th>
+                                <th>工厂名称</th>
+                                <th>入磨压力</th>
+                                <th>出磨压力</th>
+                                <th>入磨温度</th>
+                                <th>出磨温度</th>
+                                <th>喷水阀门开度</th>
+                                <th>加压站压力</th>
+                                <th>水平振动</th>
+                                <th>垂直振动</th>
+                                <th>磨机电流</th>
+                                <th>入料量</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div id="container" style=" margin-top: -50px; width: 300px;height:300px;"></div>-->
+    <script src="../EZUIKit_js/ezuikit.js"></script>
+    <script src="../js/jquery-2.0.3.js"></script>
+    <script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../js/dataCenter.js"></script>
+    </body>
+</html>
