@@ -8,6 +8,7 @@ var player = new EZUIPlayer('myPlayer6');
 var player = new EZUIPlayer('myPlayer7');
 var player = new EZUIPlayer('myPlayer8');
 
+
 var echarDate = [];
 var echarData = [];
 
