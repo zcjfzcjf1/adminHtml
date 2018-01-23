@@ -8,7 +8,6 @@ var player = new EZUIPlayer('myPlayer6');
 var player = new EZUIPlayer('myPlayer7');
 var player = new EZUIPlayer('myPlayer8');
 
-
 var echarDate = [];
 var echarData = [];
 
@@ -97,8 +96,8 @@ option = {
 function echarShow(selector, opt){
     var dom = document.getElementById(selector) || window.parent.document.getElementById(selector);
     var myChart = echarts.init(dom);
-    var factoryId="";//工厂id
-    var valueName="";//值
+    var factoryId=this.factoryId;//工厂id
+    var valueName=this.valueName;//值
     if (opt && typeof opt === "object") {
         myChart.setOption(opt, true);
     }
@@ -173,55 +172,55 @@ $(function () {
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["leavePressure"]+" KPa</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"leave_pressure\")'>"+row["leavePressure"]+" KPa</span>";
                 },
                 "targets": 3
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["enterTemperature"]+" ℃</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"enter_temperature\")'>"+row["enterTemperature"]+" ℃</span>";
                 },
                 "targets": 4
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["leaveTemperature"]+" ℃</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"leave_temperature\")'>"+row["leaveTemperature"]+" ℃</span>";
                 },
                 "targets": 5
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["waterOpen"]+" %</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"water_open\")'>"+row["waterOpen"]+" %</span>";
                 },
                 "targets": 6
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["plusPressure"]+" MPa</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"plus_pressure\")'>"+row["plusPressure"]+" MPa</span>";
                 },
                 "targets": 7
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["horizontalVibration"]+" mm/s</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"horizontal_vibration\")'>"+row["horizontalVibration"]+" mm/s</span>";
                 },
                 "targets": 8
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["verticalVibration"]+" mm/s</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"vertical_vibration\")'>"+row["verticalVibration"]+" mm/s</span>";
                 },
                 "targets": 9
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["millCurrent"]+" A</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"mill_current\")'>"+row["millCurrent"]+" A</span>";
                 },
                 "targets": 10
             },
             {
                 "render": function ( data, type, row ) {
-                    return "<span>"+row["feedVolume"]+" t/h</span>";
+                    return "<span onclick='updateEchar(\""+row['factoryId']+"\",\"feed_volume\")'>"+row["feedVolume"]+" t/h</span>";
                 },
                 "targets": 11
             }
