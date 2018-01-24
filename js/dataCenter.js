@@ -96,6 +96,8 @@ option = {
 function echarShow(selector, opt){
     var dom = document.getElementById(selector) || window.parent.document.getElementById(selector);
     var myChart = echarts.init(dom);
+    window.parent.window.factoryId=this.factoryId;
+    window.parent.window.valueName=this.valueName;
     var factoryId=this.factoryId;//工厂id
     var valueName=this.valueName;//值
     if (opt && typeof opt === "object") {
@@ -127,10 +129,12 @@ function echarShow(selector, opt){
     });
 }
 
+
+
 setInterval(function () {
     //addData(true);
     echarShow("container", option);
-}, 3000);
+}, 60000);
 
 $(function(){
     echarShow("container", option);

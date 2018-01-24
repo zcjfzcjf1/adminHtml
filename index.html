@@ -28,9 +28,11 @@
     <!-- jvectormap -->
     <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
     <!-- Date Picker -->
-    <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-timepicker/css/bootstrap-datetimepicker.min.css">
+
     <!-- Daterange picker -->
     <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -45,6 +47,7 @@
 <style>
     
 </style>
+    <link rel="stylesheet" href="bower_components/bootstrap-timepicker/css/bootstrap-datetimepicker.min.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper" id="index">
@@ -121,10 +124,10 @@
     <div class="mask">
         <div class="more-history">
             <div class="btns-group">
-                <button class="btn btn-primary">《</button>
-                <button class="btn btn-primary">》</button>
-                <input type="text" placeholder="下拉时间" class="form_datetime" />
-                <button class="btn btn-primary">搜索</button>
+                <button class="btn btn-primary" onclick="front()">《</button>
+                <button class="btn btn-primary"  onclick="after()">》</button>
+                <input type="text" placeholder="下拉时间" class="form_datetime" id="form_datetime1" />
+                <button class="btn btn-primary" onclick="search()">搜索</button>
             </div>
             <div class="history-content-box">
                 <div id="history" class="history">
@@ -159,7 +162,7 @@
 <script src="bower_components/moment/min/moment.min.js"></script>
 <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
-<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="bower_components/bootstrap-timepicker/js/bootstrap-datetimepicker.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
